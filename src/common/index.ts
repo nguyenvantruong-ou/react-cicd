@@ -1,0 +1,3 @@
+
+export const SHOW_1_HOTTEST = 'BUTTON_1_HOTTEST';
+export const SHOW_2_HOTTEST = 'BUTTON_2_HOTTEST';
