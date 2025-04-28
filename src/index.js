@@ -1,25 +1,12 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './App';
 
 const NotFound = () => {
   return <h1>404 - Page Not Found</h1>;
 };
-
-const LoadingIcon = () => {
-  return <div>Loading...</div>; // Placeholder khi trang đang được tải
-};
-
-
-// const ErrorBoundary = ({ children }) => {
-//   try {
-//     return children;
-//   } catch (error) {
-//     return <div>Something went wrong!</div>;
-//   }
-// };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -30,25 +17,25 @@ root.render(
         <Route
           path="/"
           element={
-            <Suspense fallback={<LoadingIcon />}>
-              <App />
-            </Suspense>
+            <App/>
           }
         />
         <Route
           path="/home"
           element={
-            <Suspense fallback={<LoadingIcon />}>
-              <div>Home page</div>
-            </Suspense>
+            <div>
+              <h1>Home Page</h1>
+              <p>Welcome to the home page of the site.</p>
+            </div>
           }
         />
         <Route
           path="/about"
           element={
-            <Suspense fallback={<LoadingIcon />}>
-              <div>About Page</div>
-            </Suspense>
+            <div>
+              <h1>About Page</h1>
+              <p>This is the about page, where you can learn more about us.</p>
+            </div>
           }
         />
         <Route path="*" element={<NotFound />} />
