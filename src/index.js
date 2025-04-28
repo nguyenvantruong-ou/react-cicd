@@ -8,11 +8,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/react-cicd"> 
+    <BrowserRouter basename="/react-cicd">
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/home" element={<div>Home</div>} />
-        <Route path="/about" element={<div>About</div>} />
+        <Route path="home" element={<div>Home Page</div>} />
+        <Route path="about" element={<div>About Page</div>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
