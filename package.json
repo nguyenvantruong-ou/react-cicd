@@ -22,7 +22,7 @@
     "test": "react-scripts test --transformIgnorePatterns node_modules/jest/bin/jest.js/",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://nguyenvantruong-ou.github.io/react-cicd",
+  "homepage": "/react-cicd",
   "eslintConfig": {
     "extends": [
       "react-app",

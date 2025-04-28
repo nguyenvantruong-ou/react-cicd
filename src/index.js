@@ -1,19 +1,58 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+const NotFound = () => {
+  return <h1>404 - Page Not Found</h1>;
+};
+
+const LoadingIcon = () => {
+  return <div>Loading...</div>; // Placeholder khi trang đang được tải
+};
+
+
+// const ErrorBoundary = ({ children }) => {
+//   try {
+//     return children;
+//   } catch (error) {
+//     return <div>Something went wrong!</div>;
+//   }
+// };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <HashRouter basename="/react-cicd">
+    <BrowserRouter basename="/react-cicd">
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/home" element={<div>Home Page</div>} />
-        <Route path="/about" element={<div>About Page</div>} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<LoadingIcon />}>
+              <App />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <Suspense fallback={<LoadingIcon />}>
+              <div>Home page</div>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={<LoadingIcon />}>
+              <div>About Page</div>
+            </Suspense>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
