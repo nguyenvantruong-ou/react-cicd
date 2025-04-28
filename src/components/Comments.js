@@ -16,6 +16,7 @@ const Comments = () => {
 
   return (
     <ul>
+      <li>Last one: ABCBBCB</li>
       {comments?.map((comment, index) => (
         <li key={index} data-testid="comment">
           {comment.name}
